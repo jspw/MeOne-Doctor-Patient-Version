@@ -4,7 +4,8 @@
   "description": "A template for express-mongo backend",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [
     "node",
