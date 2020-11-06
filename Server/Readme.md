@@ -254,8 +254,18 @@ Response:
             "time",
             "_id",
             "disease",
-            "patient",
-            "doctor",
+            "patient": {
+                "_id",
+                "name",
+                "email",
+                "mobile",
+                "__v"
+            },
+            "doctor": {
+                "_id",
+                "name",
+                "__v"
+            },
             "__v"
         }
     }
