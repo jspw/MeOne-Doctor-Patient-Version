@@ -33,7 +33,7 @@ Request: `GET` `/doctors`
 
 Response:
 
-```json
+```js
 {
     "status": "success",
     "data": {
@@ -55,15 +55,15 @@ Request: `POST` `/doctors`
 
 Body:
 
-```json
+```js
 {
-    "name"
+  ('name');
 }
 ```
 
 Response:
 
-```json
+```js
 {
     "status": "success",
     "data": {
@@ -82,7 +82,7 @@ Request: `GET` `/doctors/:id`
 
 Response:
 
-```json
+```js
 {
     "status": "success",
     "data": {
@@ -103,7 +103,7 @@ Request: `GET` `/patients`
 
 Response:
 
-```json
+```js
 {
     "status": "success",
     "data": {
@@ -127,17 +127,15 @@ Request: `POST` `/patients`
 
 Body:
 
-```json
+```js
 {
-    "name",
-    "email",
-    "mobile"
+  'name', 'email', 'mobile';
 }
 ```
 
 Response:
 
-```json
+```js
 {
     "status": "success",
     "data": {
@@ -158,7 +156,7 @@ Request: `GET` `/patients/:id`
 
 Response:
 
-```json
+```js
 {
     "status": "success",
     "data": {
@@ -181,7 +179,7 @@ Request: `GET` `/appointments`
 
 Response:
 
-```json
+```js
 {
     "status": "success",
     "data": {
@@ -216,7 +214,7 @@ Request: `POST` `/appointments`
 
 Body:
 
-```json
+```js
 {
     "disease",
     "patient": "patientID",
@@ -226,7 +224,7 @@ Body:
 
 Response:
 
-```json
+```js
 {
     "status": "success",
     "data": {
@@ -248,7 +246,7 @@ Request: `GET` `/appointments/:id`
 
 Response:
 
-```json
+```js
 {
     "status": "success",
     "data": {
