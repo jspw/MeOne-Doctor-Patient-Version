@@ -1,6 +1,6 @@
 'use strict';
 
-const { getDoctors, createDoctor } = require('../controllers/doctorController');
+const { getDoctors, createDoctor, getSingleDoctor } = require('../controllers/doctorController');
 
 // Importing functions from the controller
 
@@ -10,5 +10,6 @@ const doctorRouter = require('express').Router();
 
 // Setting up the routes
 doctorRouter.route('/').get(getDoctors).post(createDoctor);
+doctorRouter.route('/:id').get(getSingleDoctor);
 
 module.exports = doctorRouter;

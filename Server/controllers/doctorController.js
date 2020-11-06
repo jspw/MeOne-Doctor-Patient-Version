@@ -22,4 +22,15 @@ const createDoctor = catchAsync(async (req, res, next) => {
   });
 });
 
-module.exports = { getDoctors, createDoctor };
+const getSingleDoctor = catchAsync(async (req, res, next) => {
+  const doctor = await DoctorModel.findById(req.params.id);
+
+  if (!doctor) return next(new AppError('Not found!', 404));
+
+  res.status(200).json({
+    status: 'success',
+    data: { Doctor: doctor },
+  });
+});
+
+module.exports = { getDoctors, createDoctor, getSingleDoctor };
