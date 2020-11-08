@@ -16,6 +16,9 @@ import { FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list'
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -38,6 +41,10 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatMenuModule,
         MatListModule,
         MatDialogModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        MatNativeDateModule
+        
     ],
     exports: [
         MatCardModule,
@@ -58,6 +65,10 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatMenuModule,
         MatListModule,
         MatDialogModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        MatNativeDateModule
+        
     ]
 })
 export class MaterialModule { }
