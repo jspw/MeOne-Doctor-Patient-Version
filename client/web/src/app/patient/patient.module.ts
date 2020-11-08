@@ -4,23 +4,19 @@ import { MaterialModule } from '../material.module';
 
 import { PatientRoutingModule } from './patient-routing.module';
 import { PatientComponent } from './patient.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FormModalComponent } from './form-modal/form-modal.component';
-import { FormComponent } from './form-modal/form/form.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
+import { AppointmentHomeComponent } from './appointment-home/appointment-home.component';
 
 @NgModule({
   declarations: [
     PatientComponent,
-    NavbarComponent,
-    FormModalComponent,
-    // FormComponent
-  ],
-  entryComponents: [
-    FormComponent
+    AppointmentFormComponent,
+    AppointmentHomeComponent,
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     PatientRoutingModule,
     MaterialModule
   ]

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientComponent implements OnInit {
 
+  sidenav = false;
   constructor() { }
 
   ngOnInit(): void {
