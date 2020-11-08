@@ -1,0 +1,64 @@
+<!-- <div class="container"> -->
+<mat-card class="p-5">
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+
+    <!-- <h3>Doctor:</h3> -->
+    <mat-form-field appearance="legacy" class="w-100">
+        <mat-label>Doctor</mat-label>
+        <mat-select [formControlName]="'doctor'">
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let doctor of doctors" [value]="doctor">
+                {{doctor.name}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="appointmentForm.get('doctor').hasError('required')">
+            Please choose a doctor
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <!-- Date -->
+    <mat-form-field appearance="legacy" class="w-100">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [formControlName]="'time'">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="appointmentForm.get('time').hasError('required')">
+            Please choose a Date
+        </mat-error>
+    </mat-form-field>
+    <!-- <br>
+    <!-- <mat-form-field appearance="legacy" class="w-100">
+        <mat-label>Choose a date</mat-label>
+        <input matInput type="datetime-local" [formControlName]="'time'">
+        <mat-error *ngIf="appointmentForm.get('time').hasError('required')">
+            Please choose a Date
+        </mat-error>
+    </mat-form-field>
+    <br> -->
+
+    <mat-form-field appearance="legacy" class="w-100">
+        <mat-label>Write your Disease</mat-label>
+        <input matInput [formControlName]="'disease'">
+        <mat-error *ngIf="appointmentForm.get('disease').hasError('required')">
+            Required
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="legacy" class="w-100">
+        <mat-label>Textarea</mat-label>
+        <textarea matInput [formControlName]="'details'" rows="10"></textarea>
+        <mat-error *ngIf="appointmentForm.get('details').hasError('required')">
+            Please Write The Details
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    
+    <button type="submit" mat-raised-button color="primary" [disabled]="appointmentForm.invalid"> 
+        Submit
+    </button>
+</form>
+</mat-card>
+
