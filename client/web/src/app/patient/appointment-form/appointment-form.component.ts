@@ -9,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AppointmentFormComponent implements OnInit {
 
   appointmentForm: FormGroup
+  minDate : Date
+  maxDate: Date
   doctors = [
     {
       name: 'Andrew'
@@ -25,23 +27,29 @@ export class AppointmentFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formInit()
+    this.minDate = new Date()
+    this.maxDate = new Date()
+    this.maxDate.setDate(new Date().getDate() + 7)
+    console.log(this.maxDate);
+    
   }
 
   private formInit() {
     let doctor = ''
     let time = ''
     let disease = ''
-    let note = ''
+    let details = ''
 
     this.appointmentForm = new FormGroup({
       doctor: new FormControl(doctor, [Validators.required]),
       time: new FormControl(time, [Validators.required]),
       disease: new FormControl(disease, [Validators.required]),
-      details: new FormControl(note, [Validators.required]),
+      details: new FormControl(details, [Validators.required]),
     })
   }
 
   onSubmit() {
-    console.log(this.appointmentForm)
+    console.log(this.appointmentForm.value)
+    
   }
 }
