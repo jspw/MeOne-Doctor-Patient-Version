@@ -18,8 +18,8 @@ const getUser = catchAsync(async (req, res, next) => {
 
 // Function to sign up a user
 const signUp = catchAsync(async (req, res, next) => {
-  const { name, email, password } = req.body;
-  const newUser = new UserModel({ name, email, password });
+  const { name, email, password, nid, phone, dateOfBirth, role } = req.body;
+  const newUser = new UserModel({ name, email, password, nid, phone, dateOfBirth: new Date(dateOfBirth), role });
   const user = await newUser.save();
 
   sendToken(user, 201, res);
@@ -43,7 +43,7 @@ const login = catchAsync(async (req, res, next) => {
 });
 
 const logout = catchAsync(async (req, res, next) => {
-  res.cookie('jwt', '', { expiresIn: 1000 });
+  // res.cookie('jwt', '', { expiresIn: 1000 });
   res.status(200).json({ status: 'success' });
 });
 
@@ -70,15 +70,15 @@ const signToken = id => {
 const sendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
 
-  const cookieOptions = {
-    expires: new Date(
-      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
-    ),
-    httpOnly: true,
-  };
+  // const cookieOptions = {
+  //   expires: new Date(
+  //     Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
+  //   ),
+  //   httpOnly: true,
+  // };
   if (process.env.NODE_ENV == 'production') cookieOptions.secure = true;
 
-  res.cookie('jwt', token, cookieOptions);
+  // res.cookie('jwt', token, cookieOptions);
 
   user.password = undefined;
   res.status(statusCode).json({
