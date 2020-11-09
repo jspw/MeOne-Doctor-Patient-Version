@@ -3,8 +3,6 @@
 // Importing the app error class
 const AppError = require('../utils/appError');
 const appointmentRouter = require('./appointmetRoutes');
-const doctorRouter = require('./doctorRoutes');
-const patientRouter = require('./patientRoutes');
 
 // Importing the routers
 const userRouter = require('./userRoutes');
@@ -14,8 +12,8 @@ const router = require('express').Router();
 
 // Registering all routers
 router.use('/users', userRouter);
-router.use('/doctors', doctorRouter);
-router.use('/patients', patientRouter);
+// router.use('/doctors', doctorRouter);
+// router.use('/patients', patientRouter);
 router.use('/appointments', appointmentRouter)
 
 // The 404 route

@@ -17,11 +17,11 @@ const appointmentSchema = new Schema({
   },
   doctor: {
       type: Schema.Types.ObjectId,
-      ref: 'Doctor'
+      ref: 'User'
   },
   patient: {
       type: Schema.Types.ObjectId,
-      ref: 'Patient'
+      ref: 'User'
   }
 });
 

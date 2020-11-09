@@ -22,6 +22,19 @@ const userSchema = new Schema({
     },
     lowercase: true,
   },
+  nid: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: String,
+  },
+  image: {
+    type: String,
+  },
+  dateOfBirth: {
+    type: Date,
+  },
   password: {
     type: String,
     required: [true, 'Password is required'],
@@ -36,8 +49,8 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ['user', 'admin'],
-    default: 'user',
+    enum: ['patient', 'doctor', 'pharmacy', 'super-admin'],
+    default: 'patient',
   },
 });
 
