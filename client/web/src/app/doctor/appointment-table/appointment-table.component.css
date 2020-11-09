@@ -1,11 +1,11 @@
-table {
+/* table {
   width: 100%;
 }
 
 .mat-form-field {
   font-size: 14px;
   width: 100%;
-}*
+}
 
 td, th {
   white-space: normal;
@@ -13,10 +13,10 @@ td, th {
   overflow: hidden;
   min-width: 200px;
   width: 1%;
-}
+} */
 
 
-/* .table-responsive {
+.table-responsive {
   display: block;
   width: 100%;
   overflow-x: auto;
@@ -44,4 +44,4 @@ td, th {
   white-space: nowrap;
   overflow: hidden;
   vertical-align: middle;
-} */
+}
