@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '../material.module';
 
 import { PatientRoutingModule } from './patient-routing.module';
 import { PatientComponent } from './patient.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { MaterialModule } from '../material.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
+import { AppointmentHomeComponent } from './appointment-home/appointment-home.component';
 
 @NgModule({
   declarations: [
     PatientComponent,
-      NavbarComponent],
+    AppointmentFormComponent,
+    AppointmentHomeComponent,
+  ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     PatientRoutingModule,
     MaterialModule
   ]
