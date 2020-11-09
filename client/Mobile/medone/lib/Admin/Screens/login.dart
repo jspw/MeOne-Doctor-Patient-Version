@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:medone/Admin/Widgets/customTextField.dart';
+import 'package:medone/Patient/Screens/patientHome.dart';
 
 class Login extends StatefulWidget {
+  static const route = "/login";
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -102,13 +105,8 @@ class LoginState extends State {
             child: Container(
               color: Theme.of(context).accentColor,
               child: FlatButton(
-                  onPressed: () {
-                    debugPrint("Printing Login Info : ");
-                    debugPrint(_usernameController.toString());
-                    debugPrint(_passwordController.toString());
-                    debugPrint(_rembermeValue.toString());
-                    debugPrint("Login");
-                  },
+                  onPressed: () =>
+                      Navigator.pushNamed(context, PatientHome.route),
                   child: Text(
                     "Login",
                     style: TextStyle(

@@ -16,7 +16,7 @@ const userRouter = require('express').Router();
 // Setting up the routes
 userRouter.route('/').get(protect, getUser).post(signUp);
 userRouter.route('/login').post(login);
-userRouter.route('/logout').get(logout);
-userRouter.route('/:id').get(getSingleUser);
+userRouter.route('/logout').get(protect, logout);
+userRouter.route('/:id').get(protect, getSingleUser);
 
 module.exports = userRouter;

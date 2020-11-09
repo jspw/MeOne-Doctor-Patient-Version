@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:medone/Admin/Screens/login.dart';
+import 'Admin/Screens/login.dart';
+import 'Patient/Screens/patientHome.dart';
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
+      brightness: Brightness.light,
       backgroundColor: Colors.grey,
-      primaryColor: Colors.blueGrey,
-      accentColor: Colors.indigo,
-
+      primaryColor: Colors.blue,
+      accentColor: Colors.white,
+      textTheme: TextTheme(
+        headline1: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+        headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+        bodyText2: TextStyle(
+          fontSize: 18.0,
+        ),
+      ),
     ),
-
-    initialRoute: '/login',
-
+    initialRoute: PatientHome.route,
     routes: {
-      '/login' : (context) => Login(),
-
+      Login.route: (context) => Login(),
+      PatientHome.route: (context) => PatientHome(),
     },
-
   ));
 }
