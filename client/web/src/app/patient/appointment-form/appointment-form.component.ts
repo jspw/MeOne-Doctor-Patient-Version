@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-appointment-form',
@@ -8,9 +8,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AppointmentFormComponent implements OnInit {
 
+  categoryForm: FormGroup
+  doctorForm: FormGroup
   appointmentForm: FormGroup
-  minDate : Date
+  minDate: Date
   maxDate: Date
+  isLinear : boolean = true;
+
   doctors = [
     {
       name: 'Andrew'
@@ -22,34 +26,62 @@ export class AppointmentFormComponent implements OnInit {
       name: 'Patty'
     },
   ]
-
+  categories = [
+    {
+      title: 'Eye-Ear-Skin'
+    },
+    {
+      title: 'Skin'
+    },
+    {
+      title: 'Nephrology'
+    },
+  ]
+  
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.formInit()
     this.minDate = new Date()
     this.maxDate = new Date()
     this.maxDate.setDate(new Date().getDate() + 7)
-    console.log(this.maxDate);
-    
   }
 
   private formInit() {
+    let category = ''
+    this.categoryForm = new FormGroup({
+      category: new FormControl(category, [Validators.required])
+    })  
+
     let doctor = ''
-    let time = ''
+    this.doctorForm = new FormGroup({
+      doctor: new FormControl(doctor, [Validators.required])
+    }) 
+
+    let appointment_date = ''
     let disease = ''
     let details = ''
 
     this.appointmentForm = new FormGroup({
-      doctor: new FormControl(doctor, [Validators.required]),
-      time: new FormControl(time, [Validators.required]),
+      appointment_date: new FormControl(appointment_date, [Validators.required]),
       disease: new FormControl(disease, [Validators.required]),
       details: new FormControl(details, [Validators.required]),
-    })
+    })  
   }
 
+  onCategorySubmit() {
+    console.log(this.categoryForm.value);
+    this.doctors.push({
+      name: 'Bristy'
+    })
+  }
+  
+  onDoctorSubmit() {
+    console.log(this.doctorForm.value);
+    
+  }
+  
   onSubmit() {
     console.log(this.appointmentForm.value)
-    
   }
 }
