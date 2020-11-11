@@ -32,7 +32,7 @@ class PatientHome extends StatelessWidget {
           IconButton(
             icon: Icon(
               Icons.notifications,
-              color: Theme.of(context).canvasColor,
+              color: Theme.of(context).accentColor,
             ),
             onPressed: () => Navigator.pushNamed(context, "Cart.route"),
           ),

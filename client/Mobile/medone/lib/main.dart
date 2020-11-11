@@ -10,12 +10,10 @@ void main() {
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
       brightness: Brightness.light,
-      backgroundColor: Colors.cyan,
-      primaryColor: Colors.indigoAccent,
-      accentColor: Colors.yellow,
-      canvasColor: Colors.grey,
-      hoverColor: Colors.teal,
-      buttonColor: Colors.blueGrey,
+      backgroundColor: Colors.grey,
+      primaryColor: Colors.indigo[300],
+      accentColor: Colors.white,
+      secondaryHeaderColor: Colors.black,
       textTheme: TextTheme(
         headline1: TextStyle(
             fontSize: 22.0, fontWeight: FontWeight.w900, color: Colors.white),

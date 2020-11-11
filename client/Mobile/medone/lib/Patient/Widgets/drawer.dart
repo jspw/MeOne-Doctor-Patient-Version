@@ -23,7 +23,7 @@ class DrawerX extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(color: Colors.white, spreadRadius: 3),
                     ],
-                    borderRadius: BorderRadius.circular(100.0),
+                    borderRadius: BorderRadius.circular(10.0),
                     image: DecorationImage(
                       image: NetworkImage(
                           "https://res.cloudinary.com/practicaldev/image/fetch/s--q_01llEI--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/293134/b04b975f-2622-4871-9f1f-5e87500ec79a.jpg"),
@@ -32,16 +32,21 @@ class DrawerX extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.all(8),
-                  child: Text(
-                    "Mehedi Hasan Shifat",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0),
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        "Mehedi Hasan Shifat",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0),
+                      ),
+                      Text("(Patient)"),
+                    ],
                   ),
                 ),
-                Divider(),
+                // Divider(),
                 GestureDetector(
                   child: Container(
                     // margin: const EdgeInsets.all(10),
@@ -70,29 +75,47 @@ class DrawerX extends StatelessWidget {
               OptionsBuilder(
                 context,
                 "FavRestaurants.route",
-                "Favourite Restaurants",
+                "Dashboard",
                 Icon(
-                  Icons.restaurant,
-                  color: Theme.of(context).accentColor,
+                  Icons.home,
+                  color: Theme.of(context).secondaryHeaderColor,
                 ),
               ),
               OptionsBuilder(
                 context,
                 "Addresses.route",
-                "Saved Addresses",
+                "Appointments",
                 Icon(
-                  Icons.location_on,
-                  color: Theme.of(context).accentColor,
+                  Icons.list,
+                  color: Theme.of(context).secondaryHeaderColor,
                 ),
                 // HomeScreenState.center
               ),
               OptionsBuilder(
                 context,
                 "/help",
-                "Help Center",
+                "Prescriptions",
                 Icon(
-                  Icons.help,
-                  color: Theme.of(context).accentColor,
+                  Icons.receipt,
+                  color: Theme.of(context).secondaryHeaderColor,
+                ),
+              ),
+              OptionsBuilder(
+                context,
+                "/help",
+                "Medical Records",
+                Icon(
+                  Icons.healing,
+                  color: Theme.of(context).secondaryHeaderColor,
+                ),
+              ),
+              OptionsBuilder(
+                context,
+                "/help",
+                "Billing",
+                Icon(
+                  Icons.attach_money,
+                  color: Theme.of(context).secondaryHeaderColor,
                 ),
               ),
               SizedBox(
@@ -128,7 +151,7 @@ Widget OptionsBuilder(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(15.0),
                 child: icon,
               ),
               SizedBox(
@@ -138,8 +161,8 @@ Widget OptionsBuilder(
                 option,
                 style: TextStyle(
                     color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 18.0),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20.0),
               ),
             ],
           ),
@@ -172,7 +195,7 @@ Widget OptionsBuilder2(BuildContext context, String option) {
         style: TextStyle(
           fontSize: 16.0,
           color: Colors.black,
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w500,
         ),
       ),
     ),
