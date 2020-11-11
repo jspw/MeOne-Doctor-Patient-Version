@@ -23,7 +23,10 @@ class PatientHome extends StatelessWidget {
           ),
           onPressed: () => _scaffoldKey.currentState.openDrawer(),
         ),
-        title: Text("Medico"),
+        title: Text(
+          "মেডি সেবা",
+          style: Theme.of(context).textTheme.headline1,
+        ),
         centerTitle: true,
         actions: <Widget>[
           IconButton(
@@ -44,7 +47,7 @@ class PatientHome extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(20),
             child: FeatureOptions(),
-            ),
+          ),
         ],
       ),
       drawer: DrawerX(),

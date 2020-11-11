@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medone/Patient/Screens/doctorsSuggest.dart';
+import 'package:medone/Patient/Screens/selectSymtoms.dart';
+import 'package:medone/Patient/Screens/symtomsFindingSelectPart.dart';
 import 'Admin/Screens/login.dart';
 import 'Patient/Screens/patientHome.dart';
 
@@ -8,11 +11,17 @@ void main() {
     theme: ThemeData(
       brightness: Brightness.light,
       backgroundColor: Colors.grey,
-      primaryColor: Colors.blue,
+      primaryColor: Colors.indigo[300],
       accentColor: Colors.white,
+      secondaryHeaderColor: Colors.black,
       textTheme: TextTheme(
-        headline1: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-        headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+        headline1: TextStyle(
+            fontSize: 22.0, fontWeight: FontWeight.w900, color: Colors.white),
+        headline2: TextStyle(
+            fontSize: 20.0,
+            fontStyle: FontStyle.normal,
+            fontWeight: FontWeight.w500,
+            color: Colors.black),
         bodyText2: TextStyle(
           fontSize: 18.0,
         ),
@@ -22,6 +31,9 @@ void main() {
     routes: {
       Login.route: (context) => Login(),
       PatientHome.route: (context) => PatientHome(),
+      SymtomsFindingSelectPart.route: (context) => SymtomsFindingSelectPart(),
+      SelectSymtoms.route: (context) => SelectSymtoms(),
+      DoctorsSuggest.route: (contex) => DoctorsSuggest(),
     },
   ));
 }
