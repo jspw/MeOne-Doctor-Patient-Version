@@ -11,7 +11,7 @@ class DrawerX extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(10.0),
             // height: 220.0,
-            color: Theme.of(context).accentColor,
+            color: Colors.lightBlue,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,7 +36,7 @@ class DrawerX extends StatelessWidget {
                   child: Text(
                     "Mehedi Hasan Shifat",
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0),
                   ),
@@ -48,7 +48,7 @@ class DrawerX extends StatelessWidget {
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.white),
+                        color: Colors.indigo),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
