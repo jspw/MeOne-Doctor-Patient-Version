@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppointmentHomeComponent implements OnInit {
 
+  User_Name  = "Andrew";
   constructor() { }
 
   ngOnInit(): void {

@@ -19,7 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     imports: [
@@ -43,7 +43,8 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatDialogModule,
         MatDatepickerModule,
         MatSelectModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        FlexLayoutModule
         
     ],
     exports: [
@@ -67,7 +68,8 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatDialogModule,
         MatDatepickerModule,
         MatSelectModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        FlexLayoutModule
         
     ]
 })
