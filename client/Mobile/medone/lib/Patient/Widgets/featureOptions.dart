@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medone/Patient/Screens/symtomsFindingSelectPart.dart';
 
 class FeatureOptions extends StatelessWidget {
   @override
@@ -14,22 +15,27 @@ class FeatureOptions extends StatelessWidget {
       crossAxisCount: 3,
       childAspectRatio: 0.8,
       children: <Widget>[
-        options("assets/images/doctor.png", "ডাক্তার",context,"/"),
-        options("assets/images/ambulance.png", "এ্যাম্বুলেন্স",context,"/"),
-        options("assets/images/medical-record.png", "রোগলক্ষন",context,"/"),
-        options("assets/images/capsules.png", "ঔসধ",context,"/"),
-        options("assets/images/chat.png", "গুপ্ত আলাপ",context,"/"),
-        options("assets/images/hospital.png", "হাসপাতাল",context,"/"),
-        options("assets/images/first-aid-kit.png", "প্রাথমিক চিকিৎসা",context,"/"),
+        options("assets/images/medical-record.png", "রোগলক্ষন", context,
+            SymtomsFindingSelectPart.route),
+        options("assets/images/doctor.png", "ডাক্তার", context, "/doctors"),
+        options("assets/images/ambulance.png", "এ্যাম্বুলেন্স", context,
+            "/ambulance"),
+        options(
+            "assets/images/hospital.png", "হাসপাতাল", context, "/hospitals"),
+        options("assets/images/capsules.png", "ঔসধ", context, "/medicine"),
+        options("assets/images/first-aid-kit.png", "প্রাথমিক চিকিৎসা", context,
+            "/aid"),
+        options("assets/images/chat.png", "গুপ্ত আলাপ", context, "/chat"),
       ],
     );
   }
 }
 
-Widget options(String source, String heading,BuildContext contex,String route) {
+Widget options(
+    String source, String heading, BuildContext contex, String route) {
   return GestureDetector(
-    onTap: () => Navigator.pushNamed(contex, "routeName"),
-      child: Card(
+    onTap: () => Navigator.pushNamed(contex, route),
+    child: Card(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,6 +53,7 @@ Widget options(String source, String heading,BuildContext contex,String route) {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 heading,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
                 textDirection: TextDirection.ltr,
                 textAlign: TextAlign.center,
               ),
