@@ -87,6 +87,14 @@ Response:
 
 Request: `PROTECTED` `GET` `/users`
 
+Header:
+
+```json
+{
+  "Authorization": "Bearer JWT_TOKEN"
+}
+```
+
 Response:
 
 ```json
@@ -112,6 +120,14 @@ Response:
 #### Get Single User
 
 Request: `PROTECTED` `GET` `/users/:id`
+
+Header:
+
+```json
+{
+  "Authorization": "Bearer JWT_TOKEN"
+}
+```
 
 Response:
 
