@@ -19,34 +19,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatStepperModule } from '@angular/material/stepper';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
-    imports: [
-        MatCardModule,
-        MatButtonModule,
-        MatInputModule,
-        MatRadioModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatButtonModule,
-        MatButtonToggleModule,
-        MatIconModule,
-        MatBadgeModule,
-        MatProgressSpinnerModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        FormsModule,
-        MatMenuModule,
-        MatListModule,
-        MatDialogModule,
-        MatDatepickerModule,
-        MatSelectModule,
-        MatNativeDateModule,
-        FlexLayoutModule
-        
-    ],
     exports: [
         MatCardModule,
         MatButtonModule,
@@ -69,6 +46,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         MatDatepickerModule,
         MatSelectModule,
         MatNativeDateModule,
+        MatStepperModule,
+
         FlexLayoutModule
         
     ]
