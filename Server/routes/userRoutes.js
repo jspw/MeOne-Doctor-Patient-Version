@@ -7,6 +7,8 @@ const {
   getSingleUser,
   login,
   logout,
+  getMyProfile,
+  updateProfile,
 } = require('../controllers/userController');
 const { protect } = require('../middlewares/protect');
 
@@ -15,6 +17,7 @@ const userRouter = require('express').Router();
 
 // Setting up the routes
 userRouter.route('/').get(protect, getUser).post(signUp);
+userRouter.route('/me').get(protect, getMyProfile).put(protect, updateProfile);
 userRouter.route('/login').post(login);
 userRouter.route('/logout').get(protect, logout);
 userRouter.route('/:id').get(protect, getSingleUser);
