@@ -23,6 +23,9 @@ import { MatStepperModule } from '@angular/material/stepper';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { MglTimelineModule } from 'angular-mgl-timeline';
+
+
 @NgModule({
     exports: [
         MatCardModule,
@@ -48,7 +51,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         MatNativeDateModule,
         MatStepperModule,
 
-        FlexLayoutModule
+        FlexLayoutModule,
+
+        MglTimelineModule,
         
     ]
 })
