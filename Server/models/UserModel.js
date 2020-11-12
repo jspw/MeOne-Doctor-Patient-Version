@@ -24,7 +24,7 @@ const userSchema = new Schema({
   },
   nid: {
     type: String,
-    required: true,
+    required: [true, "NID is required for all kind of users"],
     unique: true
   },
   phone: {
@@ -35,6 +35,9 @@ const userSchema = new Schema({
   },
   dateOfBirth: {
     type: Date,
+  },
+  designation: {
+    type: String
   },
   password: {
     type: String,
