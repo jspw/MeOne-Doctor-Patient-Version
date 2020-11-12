@@ -43,7 +43,6 @@ const login = catchAsync(async (req, res, next) => {
 });
 
 const logout = catchAsync(async (req, res, next) => {
-  // res.cookie('jwt', '', { expiresIn: 1000 });
   res.status(200).json({ status: 'success' });
 });
 
@@ -59,6 +58,26 @@ const getSingleUser = catchAsync(async (req, res, next) => {
   });
 });
 
+// Get My Profile
+const getMyProfile = catchAsync(async (req, res, next) => {
+  res.status(200).json({
+    status: 'success',
+    data: { user: req.user },
+  });
+});
+
+// Update Profile
+const updateProfile = catchAsync(async (req, res, next) => {
+  const name = req.body.name || req.user.name;
+  const phone = req.body.phone || req.user.phone;
+  const updatedUser = await UserModel.findOneAndUpdate({_id: req.user._id}, {name, phone}, {new: true})
+
+  res.status(200).json({
+    status: 'success',
+    data: { user: updatedUser },
+  });
+});
+
 // Signing a token
 const signToken = id => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -69,16 +88,7 @@ const signToken = id => {
 // Send token to client
 const sendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
-
-  // const cookieOptions = {
-  //   expires: new Date(
-  //     Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
-  //   ),
-  //   httpOnly: true,
-  // };
   if (process.env.NODE_ENV == 'production') cookieOptions.secure = true;
-
-  // res.cookie('jwt', token, cookieOptions);
 
   user.password = undefined;
   res.status(statusCode).json({
@@ -90,4 +100,4 @@ const sendToken = (user, statusCode, res) => {
   });
 };
 
-module.exports = { signUp, getUser, getSingleUser, login, logout };
+module.exports = { signUp, getUser, getSingleUser, login, logout, getMyProfile, updateProfile };

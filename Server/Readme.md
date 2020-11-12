@@ -83,6 +83,8 @@ Response:
 }
 ```
 
+### Users
+
 #### Get All Users
 
 Request: `PROTECTED` `GET` `/users`
@@ -126,6 +128,81 @@ Header:
 ```json
 {
   "Authorization": "Bearer JWT_TOKEN"
+}
+```
+
+Response:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "user": {
+      "role": "Text",
+      "_id": "ObjectID",
+      "name": "Text",
+      "email": "Email",
+      "nid": "Text",
+      "phone": "Text",
+      "dateOfBirth": "Date",
+      "registered_at": "Date"
+    }
+  }
+}
+```
+
+### Profile
+
+#### Get User Profile
+
+Request: `PROTECTED` `GET` `/users/me`
+
+Header:
+
+```json
+{
+  "Authorization": "Bearer JWT_TOKEN"
+}
+```
+
+Response:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "user": {
+      "role": "Text",
+      "_id": "ObjectID",
+      "name": "Text",
+      "email": "Email",
+      "nid": "Text",
+      "phone": "Text",
+      "dateOfBirth": "Date",
+      "registered_at": "Date"
+    }
+  }
+}
+```
+
+#### Update User Profile
+
+Request: `PROTECTED` `PUT` `/users/me`
+
+Header:
+
+```json
+{
+  "Authorization": "Bearer JWT_TOKEN"
+}
+```
+
+Bpdy:
+
+```json
+{
+  "name": "Text",
+  "phone": "Text"
 }
 ```
 
