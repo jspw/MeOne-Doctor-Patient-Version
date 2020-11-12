@@ -1,5 +1,22 @@
 # Medone Server
 
+- [Start Server](#start-server)
+- [API Documentation](#api-documentation)
+  - [Authorization](#authorization)
+    - [Registration](#registration)
+    - [Login](#login)
+    - [Access A Protected Route](#access-a-protected-route)
+  - [Users](#users)
+    - [Get All Users](#get-all-users)
+    - [Get Single User](#get-single-user)
+  - [Profile](#profile)
+    - [Get User Profile](#get-user-profile)
+    - [Update User Profile](#update-user-profile)
+  - [Chambers](#chambers)
+    - [Create Chamber](#create-chamber)
+    - [Get All Chambers](#get-all-chambers)
+    - [Get All Chambers From A city](#get-all-chambers-from-a-city)
+
 ## Start Server
 
 At first you have to create a `.env` file, and add your `MONGO_URI` in it. Have a look at the `.env.example` for more information.
@@ -83,19 +100,23 @@ Response:
 }
 ```
 
-### Users
+#### Access A Protected Route
 
-#### Get All Users
-
-Request: `PROTECTED` `GET` `/users`
+Add the JSON Web Token, you get by logging in or during regestration, on the header like this.
 
 Header:
 
 ```json
 {
-  "Authorization": "Bearer JWT_TOKEN"
+  "authorization": "Bearer JWT_TOKEN"
 }
 ```
+
+### Users
+
+#### Get All Users
+
+Request: `PROTECTED` `GET` `/users`
 
 Response:
 
@@ -123,14 +144,6 @@ Response:
 
 Request: `PROTECTED` `GET` `/users/:id`
 
-Header:
-
-```json
-{
-  "Authorization": "Bearer JWT_TOKEN"
-}
-```
-
 Response:
 
 ```json
@@ -157,14 +170,6 @@ Response:
 
 Request: `PROTECTED` `GET` `/users/me`
 
-Header:
-
-```json
-{
-  "Authorization": "Bearer JWT_TOKEN"
-}
-```
-
 Response:
 
 ```json
@@ -189,15 +194,7 @@ Response:
 
 Request: `PROTECTED` `PUT` `/users/me`
 
-Header:
-
-```json
-{
-  "Authorization": "Bearer JWT_TOKEN"
-}
-```
-
-Bpdy:
+Body:
 
 ```json
 {
@@ -222,6 +219,89 @@ Response:
       "dateOfBirth": "Date",
       "registered_at": "Date"
     }
+  }
+}
+```
+
+### Chambers
+
+#### Create Chamber
+
+Request: `RESTRICTED( doctor )` `POST` `/chambers`
+
+Body:
+
+```json
+{
+  "name": "Text",
+  "city": "Text",
+  "contact": "Text",
+  "weekdays": ["Bool", "Bool", "Bool", "Bool", "Bool", "Bool", "Bool"]
+}
+```
+
+Response:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "chamber": {
+      "_id": "ObjectID",
+      "weekdays": ["Bool", "Bool", "Bool", "Bool", "Bool", "Bool", "Bool"],
+      "name": "Text",
+      "city": "Text",
+      "contact": "Text",
+      "doctor": "ObjectID"
+    }
+  }
+}
+```
+
+#### Get All Chambers
+
+Request: `Protected` `GET` `/chambers`
+
+Response:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "chambers": [
+      {
+        "_id": "ObjectID",
+        "weekdays": ["Bool", "Bool", "Bool", "Bool", "Bool", "Bool", "Bool"],
+        "name": "Text",
+        "city": "Text",
+        "contact": "Text",
+        "doctor": "ObjectID"
+      }
+    ]
+  }
+}
+```
+
+#### Get All Chambers From A city
+
+Request: `Protected` `GET` `/chambers/city/:city`
+
+Response:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "chambers": [
+      {
+        "_id": "ObjectID",
+        "weekdays": ["Bool", "Bool", "Bool", "Bool", "Bool", "Bool", "Bool"],
+        "name": "Text",
+        "city": "Text",
+        "contact": "Text",
+        "doctor": "ObjectID"
+      }
+    ]
   }
 }
 ```

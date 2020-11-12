@@ -46,9 +46,8 @@ const restrictTo = (...roles) => {
     if (!roles.includes(req.user.role)) {
       return next(new AppError('No permission', 403));
     }
+    next();
   };
-
-  next();
 };
 
 module.exports = { protect, restrictTo };
