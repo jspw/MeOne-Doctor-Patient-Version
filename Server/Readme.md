@@ -5,7 +5,7 @@
   - [Authorization](#authorization)
     - [Registration](#registration)
     - [Login](#login)
-    - [Access A Protected Route](#access-a-protected-route)
+    - [Access A Protected/Restricted Route](#access-a-protected-restricted-route)
   - [Users](#users)
     - [Get All Users](#get-all-users)
     - [Get Single User](#get-single-user)
@@ -19,6 +19,8 @@
   - [Appointments](#appointments)
     - [Create Appointment](#create-appointment)
     - [Get All Appointments](#get-all-appointments)
+    - [Get My Appointments](#get-my-appointments)
+    - [Get Single Appointment](#get-single-appointment)
 
 ## Start Server
 
@@ -53,7 +55,10 @@ Response:
 ```json
 {
   "status": "success",
-  "token": "JWT Token",
+  "jwt": {
+    "token": "JWT Token",
+    "expiresIn": "Expiration Time: MS"
+  },
   "data": {
     "user": {
       "role": "Text",
@@ -87,7 +92,10 @@ Response:
 ```json
 {
   "status": "success",
-  "token": "JWT Token",
+  "jwt": {
+    "token": "JWT Token",
+    "expiresIn": "Expiration Time: MS"
+  },
   "data": {
     "user": {
       "role": "Text",
@@ -103,7 +111,7 @@ Response:
 }
 ```
 
-#### Access A Protected Route
+#### Access A Protected/Restricted Route
 
 Add the JSON Web Token, you get by logging in or during regestration, on the header like this.
 
@@ -348,7 +356,7 @@ Response:
 
 #### Get All Appointments
 
-Request: `Protected` `GET` `/appointments`
+Request: `PROTECTED` `GET` `/appointments`
 
 Response:
 
@@ -367,6 +375,54 @@ Response:
         "patient": "ObjectID"
       }
     ]
+  }
+}
+```
+
+#### Get My Appointments
+
+Request: `RESTRICTED (doctor, patient)` `GET` `/appointments/my`
+
+Response:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "appointments": [
+      {
+        "_id": "ObjectID",
+        "disease": "Text",
+        "date": "Date",
+        "doctor": "DoctorModel",
+        "chamber": "ChamberModel",
+        "note": "Text",
+        "patient": "PatientModel"
+      }
+    ]
+  }
+}
+```
+
+#### Get Single Appointment
+
+Request: `PROTECTED` `GET` `/appointments/:id`
+
+Response:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "appointment": {
+      "_id": "ObjectID",
+      "disease": "Text",
+      "date": "Date",
+      "doctor": "DoctorModel",
+      "chamber": "ChamberModel",
+      "note": "Text",
+      "patient": "PatientModel"
+    }
   }
 }
 ```

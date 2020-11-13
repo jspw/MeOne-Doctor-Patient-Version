@@ -19,7 +19,15 @@ const getUser = catchAsync(async (req, res, next) => {
 // Function to sign up a user
 const signUp = catchAsync(async (req, res, next) => {
   const { name, email, password, nid, phone, dateOfBirth, role } = req.body;
-  const newUser = new UserModel({ name, email, password, nid, phone, dateOfBirth: new Date(dateOfBirth), role });
+  const newUser = new UserModel({
+    name,
+    email,
+    password,
+    nid,
+    phone,
+    dateOfBirth: new Date(dateOfBirth),
+    role,
+  });
   const user = await newUser.save();
 
   sendToken(user, 201, res);
@@ -70,7 +78,11 @@ const getMyProfile = catchAsync(async (req, res, next) => {
 const updateProfile = catchAsync(async (req, res, next) => {
   const name = req.body.name || req.user.name;
   const phone = req.body.phone || req.user.phone;
-  const updatedUser = await UserModel.findOneAndUpdate({_id: req.user._id}, {name, phone}, {new: true})
+  const updatedUser = await UserModel.findOneAndUpdate(
+    { _id: req.user._id },
+    { name, phone },
+    { new: true },
+  );
 
   res.status(200).json({
     status: 'success',
@@ -93,11 +105,22 @@ const sendToken = (user, statusCode, res) => {
   user.password = undefined;
   res.status(statusCode).json({
     status: 'success',
-    token,
+    jwt: {
+      token,
+      expiresIn: process.env.JWT_EXPIRES_IN,
+    },
     data: {
       user,
     },
   });
 };
 
-module.exports = { signUp, getUser, getSingleUser, login, logout, getMyProfile, updateProfile };
+module.exports = {
+  signUp,
+  getUser,
+  getSingleUser,
+  login,
+  logout,
+  getMyProfile,
+  updateProfile,
+};
