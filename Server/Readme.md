@@ -16,6 +16,9 @@
     - [Create Chamber](#create-chamber)
     - [Get All Chambers](#get-all-chambers)
     - [Get All Chambers From A city](#get-all-chambers-from-a-city)
+  - [Appointments](#appointments)
+    - [Create Appointment](#create-appointment)
+    - [Get All Appointments](#get-all-appointments)
 
 ## Start Server
 
@@ -300,6 +303,68 @@ Response:
         "city": "Text",
         "contact": "Text",
         "doctor": "ObjectID"
+      }
+    ]
+  }
+}
+```
+
+### Appointments
+
+#### Create Appointment
+
+Request: `RESTRICTED( patient )` `POST` `/appointments`
+
+Body:
+
+```json
+{
+  "disease": "Text",
+  "date": "Date (2020-11-14)",
+  "doctor": "ObjectID",
+  "chamber": "ObjectID",
+  "note": "Text"
+}
+```
+
+Response:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "appointment": {
+      "_id": "ObjectID",
+      "disease": "Text",
+      "date": "Date",
+      "doctor": "ObjectID",
+      "chamber": "ObjectID",
+      "note": "Text",
+      "patient": "ObjectID"
+    }
+  }
+}
+```
+
+#### Get All Appointments
+
+Request: `Protected` `GET` `/appointments`
+
+Response:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "appointments": [
+      {
+        "_id": "ObjectID",
+        "disease": "Text",
+        "date": "Date",
+        "doctor": "ObjectID",
+        "chamber": "ObjectID",
+        "note": "Text",
+        "patient": "ObjectID"
       }
     ]
   }

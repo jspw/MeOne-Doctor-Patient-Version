@@ -11,18 +11,27 @@ const appointmentSchema = new Schema({
     type: String,
     required: [true, 'Disease is required'],
   },
-  time: {
-      type: Date,
-      default: new Date()
+  date: {
+    type: Date,
+    required: [true, 'Date is required'],
   },
   doctor: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: [true, 'DoctorID is required'],
   },
   patient: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-  }
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  chamber: {
+    type: Schema.Types.ObjectId,
+    ref: 'Chamber',
+    required: [true, 'ChamberID is required'],
+  },
+  note: {
+    type: String,
+  },
 });
 
 // Creating model from a Schema
