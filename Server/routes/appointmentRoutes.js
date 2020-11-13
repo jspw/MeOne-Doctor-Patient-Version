@@ -4,6 +4,8 @@
 const {
   getAppointments,
   createAppointment,
+  getMyAppointments,
+  getSingleAppointment,
 } = require('../controllers/appointmentController');
 const { protect, restrictTo } = require('../middlewares/protect');
 
@@ -15,5 +17,9 @@ appointmentRouter
   .route('/')
   .get(protect, getAppointments)
   .post(protect, restrictTo('patient'), createAppointment);
+appointmentRouter
+  .route('/my')
+  .get(protect, restrictTo('doctor', 'patient'), getMyAppointments);
+appointmentRouter.route('/:id').get(protect, getSingleAppointment);
 
 module.exports = appointmentRouter;
